@@ -14,14 +14,15 @@ code {
     monospace;
 }
 
-.background {
-  background-image: url(/images/chocolat-breda-110.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+/* .background {
+  background-image: url(/images/waterbar.jpg);
   height: 100vh;
+  background-attachment: 'fixed';
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-}
+} */
 
 #sticky-footer {
   flex-shrink: none;

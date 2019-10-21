@@ -11,14 +11,14 @@ class App extends React.Component {
     render(){
         return (
 
-            <div className='background'>
+          
                 <React.Fragment>
 
                     <Restaurant />
                     
                 </React.Fragment>
   
-            </div>
+        
   
         );
     }
