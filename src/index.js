@@ -1,8 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Restaurant from './Restaurant';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import './index.css';
+
+class App extends React.Component {
+
+    render(){
+        return (
+
+            <div className='background'>
+                <React.Fragment>
+
+                    <Restaurant />
+                    
+                </React.Fragment>
+  
+            </div>
+  
+        );
+    }
+
+}
+
+export default App;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
