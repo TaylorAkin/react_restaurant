@@ -1,34 +1,10 @@
 import React from 'react';
 import './Restaurant.css';
 import { Parallax } from "react-parallax";
+import axios from 'axios';
 
 
-
-
-class Restaurant extends React.Component {
-
-    render() {
-
-        return (
-            <React.Fragment>
-
-            <div>
-                {/* <MealTypeCard Image = "/images/breakfast2.jpg" Name = 'Breakfast'  />
-                <MealTypeCard Image = "/images/appetizers.jpg" Name = 'Appetizers'  />
-                <MealTypeCard Image = "/images/lunch.jpg" Name = 'Lunch'  />
-                <MealTypeCard Image = "/images/dinner.jpg" Name = 'Dinner'  />
-                <MealTypeCard Image = "/images/dessert.jpg" Name = 'Dessert'  /> */}
-                <ParallaxBlock />
-            </div>
-            <Footer />
-                
-            </React.Fragment>
-  
-    )
-
-    }
-
-}
+/////////////////NavBar/////////////////////////
 
 
 function Navbar() {
@@ -44,13 +20,13 @@ function Navbar() {
                         <a className="nav-link h3" href="#about">Hours & Location <span className="sr-only">(current)</span></a>
                     </li>
                     <li className="nav-item active">
-                    <a class="nav-link dropdown-toggle h3" href="#about" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menus</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#breakfast">Breakfast</a>
-                            <a class="dropdown-item" href="#lunch">Lunch</a>
-                            <a class="dropdown-item" href="#appetizers">Appetizers</a>
-                            <a class="dropdown-item" href="#dinner">Dinner</a>
-                            <a class="dropdown-item" href="#dessert">Dessert</a>
+                    <a className="nav-link dropdown-toggle h3" href="#about" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menus</a>
+                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a className="dropdown-item" href="#breakfast">Breakfast</a>
+                            <a className="dropdown-item" href="#lunch">Lunch</a>
+                            <a className="dropdown-item" href="#appetizers">Appetizers</a>
+                            <a className="dropdown-item" href="#dinner">Dinner</a>
+                            <a className="dropdown-item" href="#dessert">Dessert</a>
                         </div>
                     </li>
                     <li className="nav-item active">
@@ -64,6 +40,8 @@ function Navbar() {
         </nav>
     );
 }
+
+///////////////////Footer//////////////////////
 
 function Footer() {
 
@@ -93,6 +71,9 @@ function Footer() {
     )
 
 }
+
+
+////////////////// Old Class /////////////////////
 
 // class MealTypeCard extends React.Component {
 
@@ -137,6 +118,116 @@ function Footer() {
 //     }
 // }
 
+function MealType(props) {
+        return (
+        <button className = "btn btn-link" style={insideStyles}>{props.name}</button>
+        )
+}
+
+class MenuItems extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            items: [],
+            price: ['$20','$17','$40','$32','$10','$12','$16','$21','$25','$30','$45','$24','$10','$14','$15','$16','$12'],
+            title: ['Agliaita', 'Bagna cauda', 'Maccu', 'Minestrone', 'Boreto', 'Bari', 'Farinata', 'Crocche', 'Columba Pasquale', 
+                     'Pane toscana', 'Panino', 'Pesto', 'Penia', 'Riscotto', 'Riso tonnato', 'Acqua', 'Cacciucco', 'Cappon Magro', 
+                     'Involtini', 'Cozze', 'Buridda'],
+        }
+    }
+
+    componentDidMount(){
+        axios.get(`https://entree-f18.herokuapp.com/v1/menu/12`)
+            .then(res => {
+                console.log(res);
+                // prepare new menu item array
+                let menuitems = res.data.menu_items;
+                // var m = res.data.menu_items
+                menuitems.map((item, idx) => {
+                    item.title = "Something";
+                    item.price = "$1";
+                })
+                // map data to the m array
+                // add price, title
+
+
+                // then set state items: m
+                this.setState({items: menuitems })
+
+            });
+    }
+    render(){
+
+        // let items = [1,2,3,4,5,6,7,8,9,10,11,12].map(item => {
+            return (
+              
+                 <div className = 'container mt-5'>
+                    <div className = 'row'>
+
+
+
+                    {this.state.items.map(item => 
+                        <React.Fragment>
+
+                            <h5 className = 'col-3 mt-5'> <span className = 'h2'>Item Name & Price</span>  <br></br> {item.description}</h5>
+
+                        </React.Fragment>
+                    
+                    
+                    )}
+           
+                    </div>
+                </div>
+
+              
+    
+            );
+     
+
+    }
+
+}
+
+
+
+
+class ConditionalButton extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            clicked: false,
+            
+            
+        }
+        this.handleClick = this.handleClick.bind(this);
+
+
+    }
+
+    handleClick(e){
+        e.preventDefault();
+        console.log('clicked!');
+
+        this.setState(state => ({
+            clicked: !state.clicked,
+          }));
+        }
+
+        render(){
+           return (
+            <div onClick={this.handleClick}>
+                { !this.state.clicked ? <MealType name = {this.props.name} /> : <MenuItems style={insideStyles}/> }
+            </div>
+           );
+          }
+      
+    }
+
+    
+
+
+
+
 /////////////////Paralax //////////////////////////
 
 const styles = {
@@ -151,7 +242,7 @@ const styles = {
     top: "50%",
     left: "50%",
     transform: "translate(-50%,-50%)",
-    fontSize: '10rem',
+    fontSize: '6.5rem',
     color: 'white'
   };
   const image1 =
@@ -168,10 +259,8 @@ const styles = {
     "/images/dessert.jpg";
     
   
-class ParallaxBlock extends React.Component {
-    constructor(props){
-        super(props);
-    }
+class ParallaxMenu extends React.Component {
+   
     
     render(){
         return(
@@ -184,19 +273,19 @@ class ParallaxBlock extends React.Component {
         <div style={insideStyles}>Stellas</div>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'breakfast'>| | |</h1>
     <Parallax bgImage={image2} blur={{ min: -1, max: 5 }}>
-      <div style={{ height: 500 }} id = 'breakfast'>
-        <button className = "btn btn-link" style={insideStyles}>Breakfast</button>
+      <div style={{ height: 500 }}>
+        <ConditionalButton name= 'Breakfast'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'lunch'>| | |</h1>
     <Parallax bgImage={image3} strength={-100}>
-      <div style={{ height: 500 }} id = 'lunch'>
-      <button className = "btn btn-link" style={insideStyles}>Lunch</button>
+      <div style={{ height: 500 }}>
+      <ConditionalButton  name= 'Lunch'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'appetizers'>| | |</h1>
     <Parallax
       bgImage={image4}
       renderLayer={percentage => (
@@ -216,20 +305,20 @@ class ParallaxBlock extends React.Component {
         </div>
       )}
     >
-      <div style={{ height: 500 }} id = 'appetizers'>
-      <button className = "btn btn-link" style={insideStyles}>Appetizers</button>
+      <div style={{ height: 500 }}>
+      <ConditionalButton name= 'Appetizers'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'dinner'>| | |</h1>
     <Parallax bgImage={image5} blur={{ min: -1, max: 3 }}>
-      <div style={{ height: 500 }} id = 'dinner'>
-      <button className = "btn btn-link" style={insideStyles}>Dinner</button>
+      <div style={{ height: 500 }}>
+      <ConditionalButton name= 'Dinner'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'dessert'>| | |</h1>
     <Parallax bgImage={image6} strength={-100}>
-      <div style={{ height: 500 }} id = 'dessert'>
-      <button className = "btn btn-link" style={insideStyles}>Dessert</button>
+      <div style={{ height: 500 }}>
+      <ConditionalButton name= 'Dessert'/>
       </div>
     </Parallax>
     <div style={{ height: 10 }} />
@@ -241,4 +330,30 @@ class ParallaxBlock extends React.Component {
 
 }
 
+
+
+class Restaurant extends React.Component {
+
+    render() {
+
+        return (
+            <React.Fragment>
+
+            <div>
+                {/* <MealTypeCard Image = "/images/breakfast2.jpg" Name = 'Breakfast'  />
+                <MealTypeCard Image = "/images/appetizers.jpg" Name = 'Appetizers'  />
+                <MealTypeCard Image = "/images/lunch.jpg" Name = 'Lunch'  />
+                <MealTypeCard Image = "/images/dinner.jpg" Name = 'Dinner'  />
+                <MealTypeCard Image = "/images/dessert.jpg" Name = 'Dessert'  /> */}
+                <ParallaxMenu />
+            </div>
+            <Footer />
+                
+            </React.Fragment>
+  
+    )
+
+    }
+
+}
 export default Restaurant;
