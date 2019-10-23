@@ -1,7 +1,6 @@
 import React from 'react';
 import MealType from './MealType';
 import MenuItems from './MenuItems';
-import insideStyles from './Restaurant'
 
 
 class ConditionalButton extends React.Component {
