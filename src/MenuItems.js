@@ -18,7 +18,7 @@ class MenuItems extends React.Component {
 
     componentDidMount() {
 
-        var getStorage = localStorage.getItem("MenuItems");
+        var getStorage = localStorage.getItem(this.props.menuName);
         if (getStorage) {
 
             getStorage = JSON.parse(getStorage);
@@ -31,7 +31,7 @@ class MenuItems extends React.Component {
 
         else {
 
-            axios.get(`https://entree-f18.herokuapp.com/v1/menu/8`)
+            axios.get(`https://entree-f18.herokuapp.com/v1/menu/${this.props.numOfItems}`)
                 .then(res => {
 
                     // prepare new menu item array
@@ -42,6 +42,7 @@ class MenuItems extends React.Component {
                     menuitems.map((item, idx) => {
                         item.title = this.state.title[Math.floor(Math.random() * this.state.title.length)];
                         item.price = this.state.price[Math.floor(Math.random() * this.state.price.length)];
+                        return item;
                     })
 
 
@@ -51,7 +52,7 @@ class MenuItems extends React.Component {
 
                     // then set state items: m
                     this.setState({ items: menuitems })
-                    localStorage.setItem('MenuItems', JSON.stringify(this.state.items));
+                    localStorage.setItem(this.props.menuName, JSON.stringify(this.state.items));
 
                 });
         }
@@ -59,21 +60,18 @@ class MenuItems extends React.Component {
 
 
         render(){
-            // let items = [1,2,3,4,5,6,7,8,9,10,11,12].map(item => {
+           
             return (
 
                 <div className='container mt-5'>
                     <div className='row'>
-
-                        {this.state.items.map(item =>
-                            <React.Fragment>
-
-                                <h5 className='col-3 mt-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
-
-                            </React.Fragment>
-
+                        <React.Fragment>
+                        {this.state.items.map((item, idx) =>
+                            
+                                <h5 key={idx} className='col-3 mt-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
 
                         )}
+                        </React.Fragment>
                     </div>
                 </div>
             );

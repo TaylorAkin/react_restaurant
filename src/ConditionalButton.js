@@ -27,7 +27,7 @@ class ConditionalButton extends React.Component {
         render(){
            return (
             <div onClick={this.handleClick}>
-                { !this.state.clicked ? <MealType name = {this.props.name} /> : <MenuItems /> }
+                { !this.state.clicked ? <MealType name = {this.props.name} /> : <MenuItems menuName = {this.props.name} numOfItems = {this.props.numOfItems} /> }
             </div>
            );
           }

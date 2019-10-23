@@ -23,11 +23,9 @@ const styles = {
   var gitDomain = 'taylorakin.github.io';
 
   var currentDomain = document.domain;
-  console.log(currentDomain);
-
 
   if(currentDomain === gitDomain){
-    console.log('ta');
+  
     path = "/react_restaurant";
   }
   
@@ -62,13 +60,13 @@ class ParallaxMenu extends React.Component {
     <h1 id = 'breakfast'>| | |</h1>
     <Parallax bgImage={image2} blur={{ min: -1, max: 5 }}>
       <div style={{ height: 500 }}>
-        <ConditionalButton name= 'Breakfast'/>
+        <ConditionalButton name= 'Breakfast' numOfItems='6' />
       </div>
     </Parallax>
     <h1 id = 'lunch'>| | |</h1>
     <Parallax bgImage={image3} strength={-100}>
       <div style={{ height: 500 }}>
-      <ConditionalButton  name= 'Lunch'/>
+      <ConditionalButton  name= 'Lunch' numOfItems='8'/>
       </div>
     </Parallax>
     <h1 id = 'appetizers'>| | |</h1>
@@ -79,7 +77,7 @@ class ParallaxMenu extends React.Component {
           <div
             style={{
               position: "absolute",
-              background: `rgba(255, 125, 0, ${percentage * 1})`,
+              background: `rgba(0, 255, 0, ${percentage * 1})`,
               left: "50%",
               top: "50%",
               borderRadius: "50%",
@@ -92,19 +90,19 @@ class ParallaxMenu extends React.Component {
       )}
     >
       <div style={{ height: 500 }}>
-      <ConditionalButton name= 'Appetizers'/>
+      <ConditionalButton name= 'Appetizers' numOfItems='6' />
       </div>
     </Parallax>
     <h1 id = 'dinner'>| | |</h1>
     <Parallax bgImage={image5} blur={{ min: -1, max: 3 }}>
       <div style={{ height: 500 }}>
-      <ConditionalButton name= 'Dinner'/>
+      <ConditionalButton name= 'Dinner' numOfItems='8' />
       </div>
     </Parallax>
     <h1 id = 'dessert'>| | |</h1>
     <Parallax bgImage={image6} strength={-100}>
       <div style={{ height: 500 }}>
-      <ConditionalButton name= 'Dessert'/>
+      <ConditionalButton name= 'Dessert'  numOfItems='6'/>
       </div>
     </Parallax>
     <div style={{ height: 10 }} />
