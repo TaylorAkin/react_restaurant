@@ -26,7 +26,7 @@ const styles = {
   console.log(currentDomain);
 
 
-  if(currentDomain == gitDomain){
+  if(currentDomain === gitDomain){
     console.log('ta');
     path = "/react_restaurant";
   }
