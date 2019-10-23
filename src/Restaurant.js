@@ -20,7 +20,11 @@ const styles = {
 
   var path = "";
 
-  if(document.domain.contains("github.io")){
+  var currentDomain = document.domain;
+  console.log(currentDomain);
+
+
+  if(currentDomain.includes("taylor.github.io")){
     path = "/react_restaurant";
   }
   
