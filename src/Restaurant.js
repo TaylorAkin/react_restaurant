@@ -1,149 +1,23 @@
 import React from 'react';
 import './Restaurant.css';
+import Navbar from './Navbar';
+import ConditionalButton from './ConditionalButton';
+import Footer from './Footer';
 import { Parallax } from "react-parallax";
+import { insideStyles } from './insideStyles';
 
 
 
-class Restaurant extends React.Component {
 
-    render() {
-
-        return (
-            <React.Fragment>
-
-            <Navbar />
-            <div>
-                {/* <MealTypeCard Image = "/images/breakfast2.jpg" Name = 'Breakfast'  />
-                <MealTypeCard Image = "/images/appetizers.jpg" Name = 'Appetizers'  />
-                <MealTypeCard Image = "/images/lunch.jpg" Name = 'Lunch'  />
-                <MealTypeCard Image = "/images/dinner.jpg" Name = 'Dinner'  />
-                <MealTypeCard Image = "/images/dessert.jpg" Name = 'Dessert'  /> */}
-                <ParallaxBlock />
-            </div>
-            <Footer />
-                
-            </React.Fragment>
-  
-    )
-
-    }
-
-}
-
-
-function Navbar() {
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <button className="navbar-toggler navbar-toggler-icon" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" />
-
-            <a className="navbar-brand mr-5" href="#about">Stellas</a>
-
-            <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul className="navbar-nav mr-auto mt-2 mt-lg-0 text-end">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#about">Hours & Location <span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#about">Menus</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#about" tabIndex="-1">Private Dining</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#about" tabIndex="-1">About Stellas</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    );
-}
-
-function Footer() {
-
-    return (
-        <footer className='footer navbar navbar-light bg-dark text-white-50'>
-
-            <div className='container'>
-
-                <div className = 'row'>
-
-                    <small className = 'col-4'>Stellas</small>
-
-                    <small className = 'col-4'>8334 W. Trusel Avenue Spring Valley, CA 91977</small>
-
-                    <small className = 'col-4'> Monday-Thursday <br /> 
-                    10:45-10PM      <br />
-                    Friday & Saturday <br />
-                    10:45-11PM
-                
-                </small>
-
-                </div>
-
-            </div>
-
-        </footer>
-    )
-
-}
-
-class MealTypeCard extends React.Component {
-
-    constructor(props){
-        super(props);
-        this.style = {
-            backgroundImage: `url(${props.Image})`,
-            backgroundposition: 'center',
-            backgroundsize: 'cover',
-            backgroundrepeat: 'no-repeat',
-            height: '50vh',
-
-        }
-        this.mealtype =  this.props.Name
-
-
-    
-        
-        }
-
-    
-
-    render(){
-        
-        return(
-
-            <div className = 'container-fluid'>
-                <div className = 'row'>
-                    <div className = 'col-1'></div>
-                    <div className = 'col-10 card bg-dark text-white'>
-                        <img className="card-img" style = {this.style} alt = '' />
-                        <div className="card-img-overlay">
-                        <h5 className="card-title"> {this.mealtype}</h5>
-                    </div>
-                    </div>
-                    <div className = 'col-1'></div>
-                </div>
-            </div>
-
-        );
-
-    }
-}
 
 /////////////////Paralax //////////////////////////
 
 const styles = {
-    fontFamily: "sans-serif",
-    textAlign: "center"
+    fontFamily:  'Dancing Script',
+    textAlign: "center",
+    
   };
-  const insideStyles = {
-    background: "white",
-    padding: 20,
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%,-50%)"
-  };
+  
   const image1 =
     "/images/waterbar.jpg";
   const image2 =
@@ -158,33 +32,33 @@ const styles = {
     "/images/dessert.jpg";
     
   
-class ParallaxBlock extends React.Component {
-    constructor(props){
-        super(props);
-    }
+class ParallaxMenu extends React.Component {
+   
     
     render(){
         return(
             <div style={styles}>
 
     <Parallax bgImage={image1}>
-      <div style={{ height: 570 }}>
-        <div style={insideStyles}>HTML inside the parallax</div>
+    <Navbar />
+
+      <div style={{ height: 580 }}>
+        <div style={insideStyles}>Stellas</div>
       </div>
     </Parallax>
-    <h1>| | |</h1>
-    <Parallax bgImage={image2} blur={{ min: -1, max: 3 }}>
+    <h1 id = 'breakfast'>| | |</h1>
+    <Parallax bgImage={image2} blur={{ min: -1, max: 5 }}>
       <div style={{ height: 500 }}>
-        <div style={insideStyles}>Dynamic Blur</div>
+        <ConditionalButton name= 'Breakfast'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'lunch'>| | |</h1>
     <Parallax bgImage={image3} strength={-100}>
       <div style={{ height: 500 }}>
-        <div style={insideStyles}>Reverse direction</div>
+      <ConditionalButton  name= 'Lunch'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'appetizers'>| | |</h1>
     <Parallax
       bgImage={image4}
       renderLayer={percentage => (
@@ -205,19 +79,19 @@ class ParallaxBlock extends React.Component {
       )}
     >
       <div style={{ height: 500 }}>
-        <div style={insideStyles}>renderProp</div>
+      <ConditionalButton name= 'Appetizers'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'dinner'>| | |</h1>
     <Parallax bgImage={image5} blur={{ min: -1, max: 3 }}>
       <div style={{ height: 500 }}>
-        <div style={insideStyles}>Dynamic Blur</div>
+      <ConditionalButton name= 'Dinner'/>
       </div>
     </Parallax>
-    <h1>| | |</h1>
+    <h1 id = 'dessert'>| | |</h1>
     <Parallax bgImage={image6} strength={-100}>
       <div style={{ height: 500 }}>
-        <div style={insideStyles}>Reverse direction</div>
+      <ConditionalButton name= 'Dessert'/>
       </div>
     </Parallax>
     <div style={{ height: 10 }} />
@@ -229,4 +103,27 @@ class ParallaxBlock extends React.Component {
 
 }
 
+
+
+class Restaurant extends React.Component {
+
+    render() {
+
+        return (
+            <React.Fragment>
+
+            <div>
+            
+                <ParallaxMenu />
+
+            </div>
+            <Footer />
+                
+            </React.Fragment>
+  
+    )
+
+    }
+
+}
 export default Restaurant;
