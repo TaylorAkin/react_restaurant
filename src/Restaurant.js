@@ -17,18 +17,24 @@ const styles = {
     textAlign: "center",
     
   };
+
+  var path = "";
+
+  if(document.domain.contains("github.io")){
+    path = "/react_restaurant";
+  }
   
-  const image1 =
+  const image1 = path + 
     "/images/waterbar.jpg";
-  const image2 =
+  const image2 = path + 
     "/images/breakfast2.jpg";
-  const image3 =
+  const image3 = path + 
     "/images/lunch.jpg";
-  const image4 =
+  const image4 = path + 
     "/images/appetizers.jpg";
-  const image5 =
+  const image5 = path + 
     "/images/dinner.jpg";
-  const image6 =
+  const image6 = path + 
     "/images/dessert.jpg";
     
   
