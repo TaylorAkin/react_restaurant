@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './MenuItems.css'
 
 
 
@@ -45,12 +46,6 @@ class MenuItems extends React.Component {
                         return item;
                     })
 
-
-                    // map data to the m array
-                    // add price, title
-
-
-                    // then set state items: m
                     this.setState({ items: menuitems })
                     localStorage.setItem(this.props.menuName, JSON.stringify(this.state.items));
 
@@ -59,25 +54,78 @@ class MenuItems extends React.Component {
     }
 
 
-        render(){
-           
-            return (
+    render() {
 
-                <div className='container mt-5'>
-                    <div className='row'>
-                        <React.Fragment>
-                        {this.state.items.map((item, idx) =>
+        var carousel = `carousel${this.props.menuName}`;
+        var carouselID = `#${carousel}`;
+
+        return (
+
+            <div className='container-fluid py-5 mt-5' id='MenuItemsBtnClicked'>
+                <div className='row py-5 justify-content-md-center'>
+                    <div id={carousel} className="carousel slide" data-ride="carousel" data-touch="true" data-keyboard="true">
+                        <ol className="carousel-indicators">
+
+                            {this.state.items.map((item, idx) => {
+
+                              var active = " active";
+
+                                if (idx > 0) {
+                                    active = "";
+                                }
+
+                                return(
+
+                                <li key= {idx} data-target="#carouselExampleIndicators" data-slide-to="0" className= {active} ></li>
+
+                                )
+
+                                
+                            }
                             
-                                <h5 key={idx} className='col-3 mt-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
+                            )}
 
-                        )}
-                        </React.Fragment>
+                        </ol>
+                        <div className="carousel-inner">
+                            <React.Fragment>
+
+                                {this.state.items.map((item, idx) => {
+
+                                    var active = " active";
+
+                                    if (idx > 0) {
+                                        active = "";
+                                    }
+
+                                    var carouselItem = `carousel-item${active}`;
+
+                                    return (
+                                        <div key={idx} className={carouselItem}>
+                                            <h5 className='py-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
+                                        </div>
+                                    );
+                                }
+                                    //<h5 key={idx} className='col-3 py-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
+                                )}
+
+                            </React.Fragment>
+                        </div>
+                        <a className="carousel-control-prev" href={carouselID} role="button" data-slide="prev">
+                            <span className="carousel-control-prev-icon px-5" aria-hidden="true"></span>
+                            <span className="sr-only">Previous</span>
+                        </a>
+                        <a className="carousel-control-next" href={carouselID} role="button" data-slide="next">
+                            <span className="carousel-control-next-icon px-5" aria-hidden="true"></span>
+                            <span className="sr-only">Next</span>
+                        </a>
+
                     </div>
                 </div>
-            );
-        }
+            </div>
+        );
     }
+}
 
 
 
-    export default MenuItems;
+export default MenuItems;
