@@ -6,22 +6,22 @@ import React from 'react';
 function Footer() {
 
     return (
-        <footer className='footer navbar navbar-light bg-dark text-white-50'>
+        <footer className='footer navbar navbar-light bg-dark text-white-50' id = 'footer'>
 
-            <div className='container'>
+            <div className='container-fluid'>
 
                 <div className = 'row'>
 
-                    <small className = 'col-4'>Stellas</small>
+                    <h3 className = 'mx-5'>Stellas</h3>
 
-                    <small className = 'col-4'>8334 W. Trusel Avenue Spring Valley, CA 91977</small>
+                    <h5 className = 'mx-5'>8334 W. Trusel Avenue Spring Valley, CA 91977</h5>
 
-                    <small className = 'col-4'> Monday-Thursday <br /> 
+                    <h5 className = 'mx-3'> Monday-Thursday <br /> 
                     10:45-10PM      <br />
                     Friday & Saturday <br />
                     10:45-11PM
                 
-                </small>
+                </h5>
 
                 </div>
 
