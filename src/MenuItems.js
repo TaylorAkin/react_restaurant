@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './MenuItems.css'
+import ConditionalButton from './ConditionalButton';
 
 
 
@@ -61,7 +62,7 @@ class MenuItems extends React.Component {
 
         return (
 
-            <div className='container-fluid py-5 mt-5' id='MenuItemsBtnClicked'>
+            <div className='container-fluid py-5 mt-0' id='MenuItemsBtnClicked'>
                 <div className='row py-5 justify-content-md-center'>
                     <div id={carousel} className="carousel slide" data-ride="carousel" data-touch="true" data-keyboard="true">
                         <ol className="carousel-indicators">
@@ -75,8 +76,13 @@ class MenuItems extends React.Component {
                                 }
 
                                 return(
+    
+                                    <React.Fragment>
 
-                                <li key= {idx} data-target="#carouselExampleIndicators" data-slide-to="0" className= {active} ></li>
+                                        <li key= {idx} data-target="#carouselExampleIndicators" data-slide-to="0" className= {active} ></li>
+                                       
+
+                                    </React.Fragment>
 
                                 )
 
