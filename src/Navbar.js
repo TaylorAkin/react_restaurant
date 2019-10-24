@@ -14,7 +14,7 @@ function Navbar() {
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark fixed-top" id = "navbar">
-            <button className="navbar-toggler navbar-toggler-icon h3" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" />
+            <button className="navbar-toggler navbar-toggler-icon h3" type="button" data-toggle="dropdown" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" />
 
             <a className="navbar-brand mx-5" href="navbar">Stellas</a>
 
@@ -25,12 +25,12 @@ function Navbar() {
                     </li>
                     <li className="nav-item dropdown active">
                     <a className="nav-link dropdown-toggle h3 mx-5" href="#navbar" id="navbarDropdownMenuLink" data-toggle="dropdown">Menus</a>
-                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a className="dropdown-item" href="#breakfast">Breakfast</a>
-                            <a className="dropdown-item" href="#lunch">Lunch</a>
-                            <a className="dropdown-item" href="#appetizers">Appetizers</a>
-                            <a className="dropdown-item" href="#dinner">Dinner</a>
-                            <a className="dropdown-item" href="#dessert">Dessert</a>
+                        <div className="dropdown-menu text-center" id = "menunavbar" aria-labelledby="navbarDropdownMenuLink">
+                            <a className="dropdown-item h4" href="#breakfast">Breakfast</a>
+                            <a className="dropdown-item h4" href="#lunch">Lunch</a>
+                            <a className="dropdown-item h4" href="#appetizers">Appetizers</a>
+                            <a className="dropdown-item h4" href="#dinner">Dinner</a>
+                            <a className="dropdown-item h4" href="#dessert">Dessert</a>
                         </div>
                     </li>
                     <li className="nav-item active">
