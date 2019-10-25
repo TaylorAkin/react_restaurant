@@ -54,7 +54,6 @@ class MenuItems extends React.Component {
         }
     }
 
-
     render() {
 
         var carousel = `carousel${this.props.menuName}`;
@@ -63,32 +62,29 @@ class MenuItems extends React.Component {
         return (
 
             <div className='container-fluid py-5 mt-0' id='MenuItemsBtnClicked'>
-                <div className='row py-5 justify-content-md-center'>
+                <div className='row py-5 justify-content-md-center mt-5'>
                     <div id={carousel} className="carousel slide" data-ride="carousel" data-touch="true" data-keyboard="true">
                         <ol className="carousel-indicators">
 
                             {this.state.items.map((item, idx) => {
 
-                              var active = " active";
+                                var active = " active";
 
                                 if (idx > 0) {
                                     active = "";
                                 }
 
-                                return(
-    
+                                return (
+
                                     <React.Fragment>
 
-                                        <li key= {idx} data-target="#carouselExampleIndicators" data-slide-to="0" className= {active} ></li>
-                                       
+                                        <li key={idx} data-target="#carouselExampleIndicators" data-slide-to="0" className={active}></li>
 
                                     </React.Fragment>
 
                                 )
-
-                                
                             }
-                            
+
                             )}
 
                         </ol>
@@ -107,14 +103,14 @@ class MenuItems extends React.Component {
 
                                     return (
                                         <div key={idx} className={carouselItem}>
-                                            <h5 className='py-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
+                                            <h5  className='py-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
                                         </div>
                                     );
                                 }
-                                    //<h5 key={idx} className='col-3 py-5 text-white'> <span className='h3'>{item.title} {item.price}</span>  <br></br> {item.description}</h5>
                                 )}
 
                             </React.Fragment>
+
                         </div>
                         <a className="carousel-control-prev" href={carouselID} role="button" data-slide="prev">
                             <span className="carousel-control-prev-icon px-5" aria-hidden="true"></span>
@@ -125,8 +121,13 @@ class MenuItems extends React.Component {
                             <span className="sr-only">Next</span>
                         </a>
 
-                    </div>
+          
+
+                    </div>               
                 </div>
+
+                <button onClick={this.props.onChange} className="mt-5" id = "closebtn"> X </button>
+
             </div>
         );
     }
