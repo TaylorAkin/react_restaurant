@@ -112,21 +112,18 @@ class MenuItems extends React.Component {
                             </React.Fragment>
 
                         </div>
-                        <a className="carousel-control-prev" href={carouselID} role="button" data-slide="prev">
+                    </div>        
+                    <a className="carousel-control-prev mt-5" href={carouselID} role="button" data-slide="prev">
                             <span className="carousel-control-prev-icon px-5" aria-hidden="true"></span>
                             <span className="sr-only">Previous</span>
                         </a>
-                        <a className="carousel-control-next" href={carouselID} role="button" data-slide="next">
+                        <a className="carousel-control-next mt-5" href={carouselID} role="button" data-slide="next">
                             <span className="carousel-control-next-icon px-5" aria-hidden="true"></span>
                             <span className="sr-only">Next</span>
-                        </a>
-
-          
-
-                    </div>               
+                        </a>       
                 </div>
 
-                <button onClick={this.props.onChange} className="mt-5" id = "closebtn"> X </button>
+                <button onClick={this.props.onChange} className="mt-5" id = "closebtn"> Close </button>
 
             </div>
         );
