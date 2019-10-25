@@ -5,6 +5,7 @@ import ConditionalButton from './ConditionalButton';
 import Footer from './Footer';
 import { Parallax } from "react-parallax";
 import { insideStyles } from './insideStyles';
+import { styles } from './Styles';
 
 
 
@@ -12,11 +13,6 @@ import { insideStyles } from './insideStyles';
 
 /////////////////Paralax //////////////////////////
 
-const styles = {
-    fontFamily:  'Dancing Script',
-    textAlign: "center",
-    
-  };
 
   var path = "";
 
@@ -50,7 +46,7 @@ class ParallaxMenu extends React.Component {
         return(
             <div style={styles}>
 
-    <Parallax bgImage={image1}>
+    <Parallax bgImage={image1} id = 'top'>
     <Navbar />
 
       <div style={{ height: 580 }}>
@@ -128,7 +124,7 @@ class Restaurant extends React.Component {
                 <ParallaxMenu />
 
             </div>
-            <Footer />
+            <Footer style={styles}/>
                 
             </React.Fragment>
   

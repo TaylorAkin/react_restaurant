@@ -16,7 +16,7 @@ function Navbar() {
         <nav className="navbar navbar-expand-sm navbar-dark fixed-top" id = "navbar">
             <button className="navbar-toggler navbar-toggler-icon h3" type="button" data-toggle="dropdown" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation" />
 
-            <a className="navbar-brand mx-5" href="navbar">Stellas</a>
+            <a className="navbar-brand mx-5" href="#top">Stellas</a>
 
             <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0 text-end">
