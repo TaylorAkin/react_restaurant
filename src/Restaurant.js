@@ -56,7 +56,7 @@ class ParallaxMenu extends React.Component {
     <h1 id = 'breakfast'>| | |</h1>
     <Parallax bgImage={image2} blur={{ min: -1, max: 5 }}>
       <div style={{ height: 500 }}>
-        <ConditionalButton name= 'Breakfast' numOfItems='6' />
+        <ConditionalButton name= 'Breakfast' numOfItems='6' onChange = {this.handleChange}/>
       </div>
     </Parallax>
     <h1 id = 'lunch'>| | |</h1>
