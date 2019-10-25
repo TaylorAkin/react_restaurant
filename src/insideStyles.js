@@ -2,6 +2,7 @@
 
 
 
+
 export const insideStyles = {
     
     padding: 20,
