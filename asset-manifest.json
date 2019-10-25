@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/react_restaurant/static/css/main.84fe95fc.chunk.css",
-    "main.js": "/react_restaurant/static/js/main.647de4b4.chunk.js",
-    "main.js.map": "/react_restaurant/static/js/main.647de4b4.chunk.js.map",
+    "main.css": "/react_restaurant/static/css/main.157e7f73.chunk.css",
+    "main.js": "/react_restaurant/static/js/main.04b91b5b.chunk.js",
+    "main.js.map": "/react_restaurant/static/js/main.04b91b5b.chunk.js.map",
     "runtime-main.js": "/react_restaurant/static/js/runtime-main.ba2e793e.js",
     "runtime-main.js.map": "/react_restaurant/static/js/runtime-main.ba2e793e.js.map",
     "static/css/2.510409cd.chunk.css": "/react_restaurant/static/css/2.510409cd.chunk.css",
     "static/js/2.53a02664.chunk.js": "/react_restaurant/static/js/2.53a02664.chunk.js",
     "static/js/2.53a02664.chunk.js.map": "/react_restaurant/static/js/2.53a02664.chunk.js.map",
     "index.html": "/react_restaurant/index.html",
-    "precache-manifest.c81b64db370aea2fd76fe7767cf5e4af.js": "/react_restaurant/precache-manifest.c81b64db370aea2fd76fe7767cf5e4af.js",
+    "precache-manifest.74104260ae4d40c1abe9a6bba4a32839.js": "/react_restaurant/precache-manifest.74104260ae4d40c1abe9a6bba4a32839.js",
     "service-worker.js": "/react_restaurant/service-worker.js",
     "static/css/2.510409cd.chunk.css.map": "/react_restaurant/static/css/2.510409cd.chunk.css.map",
-    "static/css/main.84fe95fc.chunk.css.map": "/react_restaurant/static/css/main.84fe95fc.chunk.css.map"
+    "static/css/main.157e7f73.chunk.css.map": "/react_restaurant/static/css/main.157e7f73.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.ba2e793e.js",
     "static/css/2.510409cd.chunk.css",
     "static/js/2.53a02664.chunk.js",
-    "static/css/main.84fe95fc.chunk.css",
-    "static/js/main.647de4b4.chunk.js"
+    "static/css/main.157e7f73.chunk.css",
+    "static/js/main.04b91b5b.chunk.js"
   ]
 }
