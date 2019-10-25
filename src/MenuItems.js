@@ -126,7 +126,7 @@ class MenuItems extends React.Component {
                     </div>               
                 </div>
 
-                <button onClick={this.props.onChange} className="mt-5" id = "closebtn"> X </button>
+                <button onClick={this.props.onChange} className="mt-5" id = "closebtn"> Close </button>
 
             </div>
         );
