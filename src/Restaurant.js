@@ -6,6 +6,7 @@ import Footer from './Footer';
 import { Parallax } from "react-parallax";
 import { insideStyles } from './insideStyles';
 import { styles } from './Styles';
+import Map from './Map'
 
 
 
@@ -125,6 +126,8 @@ class Restaurant extends React.Component {
 
             </div>
             <Footer style={styles}/>
+            <Map />
+     
                 
             </React.Fragment>
   

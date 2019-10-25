@@ -1,5 +1,5 @@
 import React from 'react';
-import { styles } from './Styles';
+
 
 
 
@@ -7,29 +7,50 @@ import { styles } from './Styles';
 function Footer() {
 
     return (
-       // <div className=' navbar-light bg-dark text-white-50' id = 'footer'>
 
+  
+            <React.Fragment>
 
-            <div className='container-fluid bg-dark text-white-50' id = 'footer'>
+        <div className='container-fluid' id='footer'>
 
-                <div className = 'row'>
-
-                    <h3 className = 'col-4 text-center h1' style={{styles}}>Stellas</h3>
-
-                    <h5 className = 'col-4 text-center h2'>8334 W. Trusel Avenue Spring Valley, CA 91977</h5>
-
-                    <h5 className = 'col-4 text-center h4'> Monday-Thursday <br /> 
-                    10:45-10PM      <br />
-                    Friday & Saturday <br />
-                    10:45-11PM
-                
-                </h5>
-
+            <div className="row">
+                <div className="col-sm-4">
+                    <div className="card">
+                        <div className="card-body">
+                            <h1 className="card-title display-4">Stellas</h1>
+                        </div>
+                    </div>
                 </div>
-
+                <div className="col-sm-4">
+                    <div className="card">
+                        <div className="card-body">
+                            <h2 className="card-title">Location</h2>
+                            <p className="card-text">Taylor St & Jefferson St, San Francisco, CA 94133</p>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div className="col-sm-4 text-center">
+                    <div className="card">
+                        <div className="card-body">
+                            <h2 className="card-title">Hours</h2>
+                            <p className="card-text">Monday-Thursday <br />
+                        10:45-10PM      <br />
+                        Friday & Saturday <br />
+                        10:45-11P</p>
+                        
+                        </div>
+                    </div>
+                </div>
             </div>
 
-       // </div>
+        </div>
+
+            </React.Fragment>
+
+     
+
+      
     )
 
 }
